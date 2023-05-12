@@ -1,8 +1,10 @@
 import pandas as pd
 from typing import List, Tuple
 
+PATH = "/Users/tollef/Downloads/git/PHD/SUMMARIZATION/grammaticality/src/data/nocola_parsed"
+
 def get_df(split: str = "train") -> pd.DataFrame:
-    dataset_path: str = f"../data/nocola_parsed/nocola_ungrammatical_{split}.txt"
+    dataset_path: str = f"{PATH}/nocola_ungrammatical_{split}.txt"
     data: List[Tuple[str, str]] = []
 
     with open(dataset_path, 'r') as file:
@@ -15,7 +17,11 @@ def get_df(split: str = "train") -> pd.DataFrame:
 
     df: pd.DataFrame = pd.DataFrame(data, columns=['text', 'label'])
 
-    invalid_labels: List[str] = ['X', 'FL']
+    # merge PUNCM, PUNCR, PUNC labels into PUNC:
+    df['label'] = df['label'].replace(['PUNCM', 'PUNCR'], 'PUNC')
+    # merge SPL and PART, as both relate to compound words. Rename to COMP
+    df['label'] = df['label'].replace(['SPL', 'PART'], 'COMP')
+    invalid_labels: List[str] = ['DER', 'X', 'FL']
     df = df[~df['label'].isin(invalid_labels)]
 
     return df

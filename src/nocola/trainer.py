@@ -34,9 +34,9 @@ def get_reduced_dataframe(df, min_samples=8):
     subset = pd.concat(subset_dfs, axis=0).reset_index(drop=True)
     return subset
 
-subset_train = get_reduced_dataframe(train_df, min_samples=3)
+subset_train = get_reduced_dataframe(train_df, min_samples=1)
 subset_eval = get_reduced_dataframe(dev_df, min_samples=1)
-subset_test = get_reduced_dataframe(test_df, min_samples=9)
+subset_test = get_reduced_dataframe(test_df, min_samples=2)
 
 dataset = Dataset.from_pandas(subset_train)
 dataset_test = Dataset.from_pandas(subset_test)
@@ -76,4 +76,4 @@ trainer.train(
 )
 metrics = trainer.evaluate()
 print(metrics)
-# trainer.push_to_hub("setfit-nocola-20-iter-25-epochs")
+trainer.push_to_hub("tollefj/setfit-nocola-errortype-mps")

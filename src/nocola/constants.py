@@ -31,3 +31,5 @@ label_mapping = {
     "SPL": 12,
     "DER": 13, 
 }
+
+label_decoding = {v:k for k,v in label_mapping.items()}
