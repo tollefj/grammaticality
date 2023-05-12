@@ -1,37 +1,7 @@
 
-# Project name goes here
+# Grammaticality tests and other things
 
-This template serves as a starting point for Python projects, including essential utilities, directory structure, and boilerplate code for various tasks.
-
-# To build your own project from this template
-
-1. **Clone it:**
-
-    ```bash
-    git clone git@github.com:tollefj/pyplate.git
-    ```
-
-2. **Disconnect it:**
-
-     ```bash
-     git remote remove origin
-     git remote add origin <your_repository_url>
-     ```
-
-3. **Make changes:**
-
-     ```bash
-     git add .
-     git commit -m "Customize the boilerplate for my project"
-     ```
-
-4. **Create your own repository:**
-
-5. **Push:**
-
-     ```bash
-     git push -u origin master
-     ```
+Based on the [`pyplate`](https://github.com/tollefj/pyplate) boilerplate.
 
 ## Running stuff
 
