@@ -1,0 +1,3 @@
+[submodule "src/data/nocola"]
+	path = src/data/nocola
+	url = git@github.com:ltgoslo/nocola.git
