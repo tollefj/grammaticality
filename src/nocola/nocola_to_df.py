@@ -1,7 +1,7 @@
 import pandas as pd
 from typing import List, Tuple
 
-PATH = "/Users/tollef/Downloads/git/PHD/SUMMARIZATION/grammaticality/src/data/nocola_parsed"
+PATH = "../data/nocola_parsed"
 
 def get_df(split: str = "train") -> pd.DataFrame:
     dataset_path: str = f"{PATH}/nocola_ungrammatical_{split}.txt"

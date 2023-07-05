@@ -53,7 +53,10 @@ sfit_model = SetFitModel.from_pretrained(
 # The prediction involves a sigmoid after which probabilities are rounded to 1 or 0.
 # Furthermore, the "one-vs-rest" and "multi-output" multi-target strategies are equivalent for the differentiable SetFitHead.
 # Create trainer
-sfit_model.to("mps")
+
+# set model to cuda
+sfit_model.to("cuda")
+
 trainer = SetFitTrainer(
     model=sfit_model,
     train_dataset=dataset,
@@ -76,4 +79,4 @@ trainer.train(
 )
 metrics = trainer.evaluate()
 print(metrics)
-trainer.push_to_hub("tollefj/setfit-nocola-errortype-mps")
+# trainer.push_to_hub("tollefj/setfit-nocola-errortype-mps")
